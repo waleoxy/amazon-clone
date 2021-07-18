@@ -10,7 +10,8 @@ function App() {
       {/*Header*/}
       <Header />
       {/*Home*/}
-      <Home />
+      <Ho
+        me />
     </div>
   );
 }
