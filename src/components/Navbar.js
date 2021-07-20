@@ -104,6 +104,7 @@ background-color: var( --amazonBlueBeacon);
     margin: 0  8px;
     text-transform: capitalize;
     font-size: 14px;
+    object-fit: contain;
 }
 
 .nav__link__d{
@@ -113,6 +114,17 @@ background-color: var( --amazonBlueBeacon);
     margin-left: 250px;
     text-transform: capitalize;
     font-size: 15px;
+}
+.nav__link__a:hover{
+    box-sizing: border-box;
+    border-color: white;
+    border: 1.5px solid;
+}
+
+.nav__link__d:hover{
+    box-sizing: border-box;
+    border-color: white;
+    border: 1.5px solid;
 }
 
 `

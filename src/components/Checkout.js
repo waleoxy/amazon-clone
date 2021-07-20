@@ -7,10 +7,10 @@ function Checkout() {
         <CheckoutWrapper>
             <div className="checkout__left">
                 <img className="checkout__ad"
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnr55aoobmD9-1uEu0YPIuQty2fwzvOiVgjA&usqp=CAU"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRw1VXUymojlDFIHU9I5y45_fcWiuJSRNG1P8xoa6cfBTQK1Cxn_aUyTibYKxyZSuFUFg&usqp=CAU"
                     alt="checkout image" />
                 <div className="checkout__title">
-                    <h2 className="checkout__title">
+                    <h2>
                         your shopping basket
                         {/*basketitem*/}
                         {/*basketitem*/}
@@ -21,7 +21,6 @@ function Checkout() {
             </div>
             <div className="checkout__right">
                 <SubTotal />
-
             </div>
         </CheckoutWrapper>
     )
@@ -31,12 +30,23 @@ export default Checkout
 
 const CheckoutWrapper = styled.div`
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     background-color: white;
     padding: 20px;
     height: max-content;
     
+.checkout__left{
+    display: flex;
+    flex-direction:column;
+    background-color: white;
+    padding: 20px;
+    height: max-content;
+
+}
+
 .checkout__ad{
-    width: 100%;
+    width: 70vmax;
     height: 90px;
     margin-top: 39px;
     margin-bottom: 10px;
@@ -54,4 +64,5 @@ const CheckoutWrapper = styled.div`
    text-transform: capitalize;
     
 }
+
 `
