@@ -67,12 +67,12 @@ export default Home
 
 
 const HomeWrapper = styled.div`
-
 display: flex;
 justify-content: center;
 margin-left: auto;
 margin-right: auto;
 max-width: 1500px;
+margin-top: 39px;
 
 .home__row{
     display: flex;
