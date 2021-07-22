@@ -1,10 +1,12 @@
 import StarIcon from '@material-ui/icons/Star';
-import React from 'react';
+import React, { useState } from 'react';
 import styled from "styled-components";
+import { initialState } from '../context/reducer';
 import { useStateValue } from '../context/StateProvider';
 
 function Product({ id, title, price, image, rating }) {
     const [{ basket }, dispatch] = useStateValue();
+    const [basketItem, setBasketItem] = useState(initialState)
 
     const addToBasket = () => {
         //dispatch item into data layer
@@ -19,6 +21,7 @@ function Product({ id, title, price, image, rating }) {
             }
         })
     }
+
     return (
         <ProductWrapper>
             <div className="product__info">

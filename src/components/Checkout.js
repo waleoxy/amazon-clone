@@ -1,22 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from "styled-components";
+import { useStateValue } from '../context/StateProvider';
+import CheckoutProduct from './CheckoutProduct';
 import SubTotal from "./SubTotal";
 
 function Checkout() {
+
+    const [{ basket }, dispatch] = useStateValue();
+
     return (
         <CheckoutWrapper>
             <div className="checkout__left">
-                <img className="checkout__ad"
+                <img
+                    className="checkout__ad"
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRw1VXUymojlDFIHU9I5y45_fcWiuJSRNG1P8xoa6cfBTQK1Cxn_aUyTibYKxyZSuFUFg&usqp=CAU"
                     alt="checkout image" />
                 <div className="checkout__title">
                     <h2>
                         your shopping basket
                     </h2>
-                    {/*basketitem*/}
-                    {/*basketitem*/}
-                    {/*basketitem*/}
-                    {/*basketitem*/}
+                    {basket.map(item => {
+                        return (<CheckoutProduct
+                            id={item.id}
+                            title={item.title}
+                            image={item.image}
+                            price={item.price}
+                            rating={item.rating}
+                        />)
+                    })}
+
                 </div>
             </div>
             <div className="checkout__right">
@@ -30,7 +42,6 @@ export default Checkout
 
 const CheckoutWrapper = styled.div`
     display: flex;
-    align-items: center;
     justify-content: space-between;
     background-color: white;
     padding: 20px;
