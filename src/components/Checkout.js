@@ -12,11 +12,11 @@ function Checkout() {
                 <div className="checkout__title">
                     <h2>
                         your shopping basket
-                        {/*basketitem*/}
-                        {/*basketitem*/}
-                        {/*basketitem*/}
-                        {/*basketitem*/}
                     </h2>
+                    {/*basketitem*/}
+                    {/*basketitem*/}
+                    {/*basketitem*/}
+                    {/*basketitem*/}
                 </div>
             </div>
             <div className="checkout__right">
