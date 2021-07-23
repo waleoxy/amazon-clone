@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './App.css';
 import Header from './components/Header';
 import Home from "./components/Home";
@@ -7,10 +7,35 @@ import Checkout from './components/Checkout';
 import Navbar from './components/Navbar';
 import Login from './components/Login';
 import { Help } from '@material-ui/icons';
+import { auth } from './firebase';
+import { useStateValue } from './context/StateProvider';
 
 function App() {
-  return (
 
+  const [{ }, dispatch] = useStateValue();
+
+  useEffect(() => {
+    auth.onAuthStateChanged(authUser => {
+      console.log("the user is", authUser);
+      if (authUser) {
+        dispatch({
+          type: "SET_USER",
+          user: authUser
+        }
+
+        )
+      } else {
+        dispatch({
+          type: "SET_USER",
+          user: null
+        }
+
+        )
+      }
+    })
+  }, [])
+
+  return (
     <Router>
       <div className="App">
 
