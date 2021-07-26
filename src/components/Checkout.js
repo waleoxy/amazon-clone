@@ -6,7 +6,7 @@ import SubTotal from "./SubTotal";
 
 function Checkout() {
 
-    const [{ basket }, dispatch] = useStateValue();
+    const [{ basket, user }, dispatch] = useStateValue();
 
     return (
         <CheckoutWrapper>
@@ -16,6 +16,9 @@ function Checkout() {
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRw1VXUymojlDFIHU9I5y45_fcWiuJSRNG1P8xoa6cfBTQK1Cxn_aUyTibYKxyZSuFUFg&usqp=CAU"
                     alt="checkout image" />
                 <div className="checkout__title">
+                    <h3>
+                        <small>Hello </small> <strong className="helloUser"> {user ? user?.email : "Guest"} </strong>
+                    </h3>
                     <h2>
                         your shopping basket
                     </h2>
@@ -75,5 +78,10 @@ const CheckoutWrapper = styled.div`
    text-transform: capitalize;
     
 }
+.helloUser{
+   text-transform: lowercase;
+    
+}
+
 
 `

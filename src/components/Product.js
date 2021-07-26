@@ -24,23 +24,25 @@ function Product({ id, title, price, image, rating }) {
 
     return (
         <ProductWrapper>
-            <div className="product__info">
-                <p>{title}</p>
-                <p className="product__price">
-                    <small>$</small>
-                    <strong>{price}</strong>
-                </p>
-                <div className="product__rating">
-                    {Array(rating).fill().map((_, i) => {
-                        return <StarIcon />
-                    })}
+            <div className="product">
+                <div className="product__info">
+                    <p>{title}</p>
+                    <p className="product__price">
+                        <small>$</small>
+                        <strong>{price}</strong>
+                    </p>
+                    <div className="product__rating">
+                        {Array(rating).fill().map((_, i) => {
+                            return <StarIcon />
+                        })}
 
+                    </div>
                 </div>
+                <img
+                    src={image}
+                    alt="product image" />
+                <button onClick={addToBasket} >add to basket</button>
             </div>
-            <img
-                src={image}
-                alt="product image" />
-            <button onClick={addToBasket} >add to basket</button>
         </ProductWrapper >
     )
 }
@@ -48,26 +50,26 @@ function Product({ id, title, price, image, rating }) {
 export default Product
 
 const ProductWrapper = styled.div`
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: flex-end;
-background-color: white;
-margin: 10px;
-padding: 15px;
-width: 100%;
-max-height: 400px;
-min-width: 100px;
-z-index: 1;
+ display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: white;
+    margin: 10px;
+    padding: 20px;
+    width: 100%;
+    max-height: 400px;
+    min-width: 100px;
+    z-index: 1;
 
->img{
+.product > img{
     max-height: 200px;
     width: 100%;
     object-fit: contain;
     margin-bottom: 15px;
 }
 
->button{
+.product > button{
     background: var(--amazonYellow);
     border: 1px solid;
     margin-top: 10px;

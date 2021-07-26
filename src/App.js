@@ -9,6 +9,7 @@ import Login from './components/Login';
 import { Help } from '@material-ui/icons';
 import { auth } from './firebase';
 import { useStateValue } from './context/StateProvider';
+import Payment from "./components/Payment";
 
 function App() {
 
@@ -40,17 +41,21 @@ function App() {
       <div className="App">
 
         <Switch>
-          <Route path="/" exact component={Home}>
-            <Header />
-            <Navbar />
-            <Home />
-          </Route>
-          <Route path="/checkout" component={Checkout}>
+          <Route path="/login" />
+          <Route path="/checkout" >
             <Header />
             <Navbar />
             <Checkout />
           </Route>
-          <Route path="/login" component={Login} />
+          <Route path="/payment" >
+            <Header />
+            <Payment />
+          </Route>
+          <Route path="/">
+            <Header />
+            <Navbar />
+            <Home />
+          </Route>
         </Switch>
       </div>
     </Router>
