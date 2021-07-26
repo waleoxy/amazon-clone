@@ -72,5 +72,13 @@ const PaymentWrapper = styled.div`
 .payment{
     background-color: white;
 }
+.payment__container > h1{
+    text-align: center;
+    padding: 10px;
+    font-weight: 400;
+    border-bottom: 1px solid lightgray;
+    border-color: rgb(234, 237, 237 ) ;
+}
+
 
 `
