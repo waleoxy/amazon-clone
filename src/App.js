@@ -10,6 +10,12 @@ import { Help } from '@material-ui/icons';
 import { auth } from './firebase';
 import { useStateValue } from './context/StateProvider';
 import Payment from "./components/Payment";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js"
+
+const promise = loadStripe(
+  "pk_test_51JHSHFDR7pXVfLP8IvwAAixBeNnBeVIH2781MSws9vDbaZkJjALZZkJ5jTy5tG0cUja6slL24UdxOP9vFleHMRCE00Wv9khTAH"
+);
 
 function App() {
 
@@ -51,7 +57,9 @@ function App() {
           </Route>
           <Route path="/payment" >
             <Header />
-            <Payment />
+            <Elements stripe={promise}>
+              <Payment />
+            </Elements>
           </Route>
           <Route path="/">
             <Header />
