@@ -16,7 +16,7 @@ function Payment() {
     const [disabled, setDisabled] = useState(true)
     const [processing, setProcessing] = useState("");
     const [succeeded, setSucceeded] = useState(true);
-    const [clientSecret, setClientSecret] = useState()
+    const [clientSecret, setClientSecret] = useState(true)
 
     const [{ basket, user }, dispatch] = useStateValue();
 
@@ -34,6 +34,8 @@ function Payment() {
         }
         getClientSecret();
     }, [basket])
+
+    console.log("the secret", clientSecret);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
