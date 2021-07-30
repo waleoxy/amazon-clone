@@ -30,7 +30,7 @@ function Payment() {
                 url: "/payments/create?total = ${getBasketTotal(basket) * 100 } "
 
             })
-            setClientSecret = response.data.clientSecret
+            setClientSecret(response.data.clientSecret)
         }
         getClientSecret();
     }, [basket])

@@ -5,20 +5,18 @@ const stripe = require("stripe")("sk_test_51JHSHFDR7pXVfLP8lHbKEhCAUffhdPoVlhjWp
 
 // API
 
-//App config
-const app = express();
-//middlewares
-app.use(cors({ origin: true }));
+//App config app.use(cors({ origin: true }));
 app.use(express.json());
 // API routes
 app.get('/', (request, response) => response.status(200).send("hello world"))
-app.post("/payment/create", async (request, response) => {
+app.post("/payments/create", async (request, response) => {
     const total = request.query.total;
     console.log("payment result received for this amount", total);
     const paymentIntent = await stripe.paymentIntents.create({
         amount: total,
-        currency: "usd",
+        currency: "usd"
     });
+    console.log("payment", paymentIntent);
     //ok created
     response.status(201).send({
         client: paymentIntent.client_secret
