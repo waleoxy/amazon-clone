@@ -5,7 +5,8 @@ const stripe = require("stripe")("sk_test_51JHSHFDR7pXVfLP8lHbKEhCAUffhdPoVlhjWp
 
 // API
 
-//App config app.use(cors({ origin: true }));
+//App config 
+app.use(cors({ origin: true }));
 app.use(express.json());
 // API routes
 app.get('/', (request, response) => response.status(200).send("hello world"))
