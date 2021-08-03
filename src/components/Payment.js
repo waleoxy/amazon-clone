@@ -27,14 +27,15 @@ function Payment() {
         const getClientSecret = async () => {
             const response = await axios({
                 method: "post",
-                url: "/payments/create?total = ${getBasketTotal(basket) * 100 } "
+                url: `/payments/create?total = ${getBasketTotal(basket) * 100}`
 
             })
             setClientSecret(response.data.clientSecret)
         }
         getClientSecret();
     }, [basket])
-
+    console.log(`/payments/create?total = ${getBasketTotal(basket) * 100}`);
+    console.log(`${getBasketTotal(basket)}`);
     console.log("the secret", clientSecret);
 
     const handleSubmit = async (event) => {
@@ -49,6 +50,10 @@ function Payment() {
             setSucceeded(true);
             setError(null);
             setProcessing(false);
+
+            dispatch({
+                type: "EMPTY_BASKET"
+            })
 
             history.replace("/order")
         })
@@ -104,7 +109,7 @@ function Payment() {
                             {/*stripe magic */}
                             <form onSubmit={handleSubmit}>
                                 <CardElement onChange={handleChange} />
-                                <div className="payment__pticeContainer">
+                                <div className="payment__priceContainer">
                                     <CurrencyFormat
                                         renderText={(value) => (
                                             <h3>Order Total: {value}</h3>
@@ -116,7 +121,7 @@ function Payment() {
                                         prefix={"$"}
                                     />
                                     <button disabled={disabled || processing || succeeded}>
-                                        <span>{processing ? <p>Processing...</p> : "Buy now"}</span>
+                                        <span>{(processing) ? <p>Processing...</p> : "Buy now"}</span>
                                     </button>
                                 </div>
                                 {error && <div>{error}</div>}
