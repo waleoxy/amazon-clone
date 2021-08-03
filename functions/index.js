@@ -19,7 +19,7 @@ app.use(express.json());
 
 app.get('/', (request, response) => response.status(200).send('hello world'));
 
-app.post(`/payments/create`, async (request, response) => {
+app.post('/payments/create', async (request, response) => {
     const total = request.query.total;
 
     console.log('received', total);
@@ -29,8 +29,8 @@ app.post(`/payments/create`, async (request, response) => {
         currency: 'usd'
     });
 
-    respose.status(201).send({
-        clientSecret: paymentIntent.client_secret
+    response.status(201).send({
+        clientSecret: paymentIntent.client_secret,
     })
 })
 
